@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
+    {"offset": {"line": 90, "column": 0}, "map": {"version":3,"sources":["file:///D:/Ram/my-app/src/app/api/check-auth/route.ts"],"sourcesContent":["import { NextApiRequest, NextApiResponse } from \"next\";\r\nimport jwt from \"jsonwebtoken\";\r\n\r\nexport default function handler(req: NextApiRequest, res: NextApiResponse) {\r\n    const token = req.cookies.token;\r\n    if (!token) {\r\n        return res.status(401).json({ user: null });\r\n    }\r\n\r\n    try {\r\n        const user = jwt.verify(token, process.env.JWT_SECRET!);\r\n        return res.status(200).json({ user });\r\n    } catch {\r\n        return res.status(401).json({ user: null });\r\n    }\r\n}\r\n"],"names":[],"mappings":";;;AACA;;AAEe,SAAS,QAAQ,GAAmB,EAAE,GAAoB;IACrE,MAAM,QAAQ,IAAI,OAAO,CAAC,KAAK;IAC/B,IAAI,CAAC,OAAO;QACR,OAAO,IAAI,MAAM,CAAC,KAAK,IAAI,CAAC;YAAE,MAAM;QAAK;IAC7C;IAEA,IAAI;QACA,MAAM,OAAO,uIAAA,CAAA,UAAG,CAAC,MAAM,CAAC,OAAO,QAAQ,GAAG,CAAC,UAAU;QACrD,OAAO,IAAI,MAAM,CAAC,KAAK,IAAI,CAAC;YAAE;QAAK;IACvC,EAAE,OAAM;QACJ,OAAO,IAAI,MAAM,CAAC,KAAK,IAAI,CAAC;YAAE,MAAM;QAAK;IAC7C;AACJ","debugId":null}}]
+}

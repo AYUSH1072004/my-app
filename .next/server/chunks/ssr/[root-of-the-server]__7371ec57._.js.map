@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
+    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///D:/Ram/my-app/src/app/Signup/page.tsx"],"sourcesContent":["import React from 'react'\r\n\r\nconst page = () => {\r\n    return (\r\n        <div className='text-white text-2xl relative top-[5rem]'>\r\n            <h1>iipipuipoipppophb</h1>\r\n        </div>\r\n    )\r\n}\r\n\r\nexport default page"],"names":[],"mappings":";;;;;AAEA,MAAM,OAAO;IACT,qBACI,8OAAC;QAAI,WAAU;kBACX,cAAA,8OAAC;sBAAG;;;;;;;;;;;AAGhB;uCAEe","debugId":null}}]
+}

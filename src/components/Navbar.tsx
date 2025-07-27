@@ -1,14 +1,24 @@
 "use client";
 
 import React, { useState } from "react";
-import 'remixicon/fonts/remixicon.css'; // make sure remixicon is installed
 import Link from "next/link";
+import 'remixicon/fonts/remixicon.css';
+import { useAuth } from "../context/AuthProvider";
 
 const Navbar: React.FC = () => {
-    const [isMenu, setIsMenu] = useState<boolean>(false);
+    const [isMenu, setIsMenu] = useState(false);
+    const { user, setUser, loading } = useAuth();
 
-    const closeMenu = (): void => {
-        setIsMenu(false);
+    const closeMenu = () => setIsMenu(false);
+
+    const handleLogout = async () => {
+        try {
+            await fetch('/api/signout', { method: 'POST' });
+            setUser(null);
+            alert("You have been logged out.");
+        } catch {
+            alert("Logout failed.");
+        }
     };
 
     return (
@@ -17,24 +27,29 @@ const Navbar: React.FC = () => {
                 <div className="text-2xl sm:text-3xl text-white">Perfume.com</div>
 
                 <div
-                    id="nav-menu"
-                    className={`
-            bg-[#330033ff] absolute top-0 ${isMenu ? "left-0" : "left-[-100%]"} w-full min-h-[80vh]
+                    className={`bg-[#330033ff] absolute top-0 ${isMenu ? "left-0" : "left-[-100%]"} w-full min-h-[80vh]
             transform transition-all duration-300 ease-in-out
             flex justify-center items-center
-            md:static md:min-h-fit md:w-auto md:bg-transparent
-          `}
+            md:static md:min-h-fit md:w-auto md:bg-transparent`}
                 >
-                    <ul
-                        className="flex md:flex-row flex-col items-center gap-6 text-white"
-                        onClick={closeMenu}
-                    >
+                    <ul className="flex md:flex-row flex-col items-center gap-6 text-white" onClick={closeMenu}>
                         <li><Link href="/" className="nav-links active">Home</Link></li>
                         <li><Link href="/product" className="nav-links">Products</Link></li>
                         <li><Link href="/mens" className="nav-links">Mens</Link></li>
                         <li><Link href="/womans" className="nav-links">Womens</Link></li>
-                        <li><Link href="/signup" className="nav-links">Sign Up</Link></li>
-                        <li><Link href="/signin" className="nav-links">Sign In</Link></li>
+
+                        {!loading && (
+                            user ? (
+                                <li>
+                                    <button onClick={handleLogout} className="nav-links">Sign Out</button>
+                                </li>
+                            ) : (
+                                <>
+                                    <li><Link href="/Signup" className="nav-links">Sign Up</Link></li>
+                                    <li><Link href="/Signin" className="nav-links">Sign In</Link></li>
+                                </>
+                            )
+                        )}
                     </ul>
                 </div>
 

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Jost, Dancing_Script } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+import { AuthProvider } from '../context/AuthProvider';
+import Navbar from "@/components/Navbar"; // ✅ keep this
 
 // ✅ Load custom fonts
 const jost = Jost({
@@ -26,10 +27,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* ✅ Apply the font variables in body */}
       <body className={`${jost.variable} ${dancingScript.variable}`}>
-        <Navbar />
-        {children}
+        {/* ✅ Wrap Navbar + children inside AuthProvider */}
+        <AuthProvider>
+          <Navbar />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

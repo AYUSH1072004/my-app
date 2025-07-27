@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
+    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///D:/Ram/my-app/src/app/Signin/page.tsx"],"sourcesContent":["import React from 'react'\r\n\r\nconst page = () => {\r\n    return (\r\n        <div className='text-white relative top-[5rem]'>page</div>\r\n    )\r\n}\r\n\r\nexport default page"],"names":[],"mappings":";;;;;AAEA,MAAM,OAAO;IACT,qBACI,8OAAC;QAAI,WAAU;kBAAiC;;;;;;AAExD;uCAEe","debugId":null}}]
+}
