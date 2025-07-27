@@ -32,10 +32,7 @@ module.exports = {
       Jost: ["Jost", "sans-serif"],
       DancingScript: ["Dancing Script", "cursive"],
     },
-    // icons:{
-    //   appIcon: '<i class="ri-apps-fill"></i>',
-    //   closeIcon:'<i class="ri-close-fill"></i>',
-    // }
+    
   },
   plugins: [],
 }

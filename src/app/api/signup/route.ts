@@ -24,10 +24,10 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ message: 'Invalid credentials' }, { status: 401 });
         }
 
-        // ✅ Generate JWT
+        // Generate JWT
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET!, { expiresIn: '7d' });
 
-        // ✅ Set cookie
+        //  Set cookie
         const response = NextResponse.json({ message: 'Login successful' });
         response.cookies.set('token', token, {
             httpOnly: true,

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/context/AuthProvider'; // ✅ Use your context
+import { useAuth } from '@/context/AuthProvider'; 
 
 const SignInPage = () => {
     const [form, setForm] = useState({ email: '', password: '' });
@@ -19,7 +19,7 @@ const SignInPage = () => {
             const res = await fetch('/api/signin', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                credentials: 'include', // ✅ Important for cookie to be saved
+                credentials: 'include', // Important for cookie to be saved
                 body: JSON.stringify(form),
             });
 
@@ -31,7 +31,7 @@ const SignInPage = () => {
                 setForm({ email: '', password: '' });
                 alert('Sign-in successful');
 
-                setUser(data.user); // ✅ Set user in context
+                setUser(data.user); // Set user in context
 
                 router.push('/');
             }

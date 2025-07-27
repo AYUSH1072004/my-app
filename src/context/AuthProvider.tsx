@@ -6,13 +6,13 @@ const AuthContext = createContext<any>(null);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const [user, setUser] = useState<any>(null);
-    const [loading, setLoading] = useState(true); // ✅ loading state for initial check
+    const [loading, setLoading] = useState(true); 
 
     useEffect(() => {
         const checkAuth = async () => {
             try {
                 const res = await fetch('/api/check-auth', {
-                    credentials: 'include', // ✅ important for cookie
+                    credentials: 'include', 
                 });
                 const data = await res.json();
 
@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
                 console.error('Auth check failed', error);
                 setUser(null);
             } finally {
-                setLoading(false); // ✅ done loading
+                setLoading(false); 
             }
         };
 
