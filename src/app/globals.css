@@ -1,42 +1,90 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html {
+  @apply scroll-smooth overflow-x-hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @apply bg-bodyColor font-Jost text-textColor tracking-wider;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+.section {
+  @apply py-16 md:py-28;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.nav-links {
+  @apply text-base font-bold hover:text-titleColor duration-300;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.active {
+  @apply text-titleColor;
+}
+
+.btn {
+  @apply border text-lg lg:text-2xl font-bold px-5 py-3 duration-300;
+}
+
+.btn2 {
+  @apply border text-lg lg:text-2xl font-bold px-3 py-2 duration-300;
+}
+
+.btn:hover,
+.btn2:hover {
+  @apply bg-titleColor;
+}
+
+.title {
+  @apply text-4xl font-DancingScript font-bold inline-block;
+}
+
+.subtitle {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold;
+}
+
+.cardtitle {
+  @apply text-2xl md:text-3xl font-bold;
+}
+
+.img {
+  transition: transform .4s ease-in-out;
+}
+
+.img:hover {
+  transform: translateY(-10px);
+}
+
+.cardtitle2 {
+  @apply text-xl md:text-2xl xl:text-3xl font-bold;
+}
+
+
+.p-img {
+  transition: transform 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.p-img:hover {
+  transform: rotate(10deg)translateY(-10px);
+}
+
+#card3 {
+  background-image: linear-gradient(to right, #33033990, #330033), url('../assets/popular_banner.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+#profile {
+  @apply w-full h-[400px] bg-bodyColor flex items-center justify-center;
+}
+
+#profile-details {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: inset 0 0 10px hsla(300, 100%, 2%, 0.609);
 }
